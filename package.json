@@ -1,0 +1,27 @@
+{
+  "name": "bots-only-have-one-joke",
+  "version": "1.0.0",
+  "description": "only one joke",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/centanomics/bots-only-have-one-joke.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/centanomics/bots-only-have-one-joke/issues"
+  },
+  "homepage": "https://github.com/centanomics/bots-only-have-one-joke#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
