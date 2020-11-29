@@ -19,7 +19,8 @@
   "homepage": "https://github.com/centanomics/bots-only-have-one-joke#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

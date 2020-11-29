@@ -1,4 +1,11 @@
 require('dotenv').config();
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Birbit listening on port ${port}`)
+})
 
 const Discord = require('discord.js');
 
