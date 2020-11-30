@@ -42,7 +42,7 @@ client.on('message', (message) => {
   //   const jokeNoun = lowMessage.substr(begin).split(' ');
   //   message.channel.send(`Hiya ${jokeNoun[2]}, I'm a Robit`);
   // }
-  const regex = /(i'm|im|i am)( ?a? ?)([a-z])+/g;
+  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)([a-z])+/g;
   const returnregex = lowMessage.match(regex);
   if (returnregex !== null) {
     const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' '));
