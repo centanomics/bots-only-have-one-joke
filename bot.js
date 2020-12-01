@@ -27,12 +27,16 @@ client.on('message', (message) => {
     return;
   }
   const lowMessage = message.content.toLowerCase();
-  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)([a-z'-])+/g;
+  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
   const returnregex = lowMessage.match(regex);
+  const firstWord = returnregex !== null ?returnregex[0].split(' ')[0] : null;
   if (returnregex !== null) {
-    const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' ') + 1);
-    console.log(noun);
-    message.channel.send(`Hiya ${noun}, I'm a Robit`);
+    if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m') {
+      return
+    } else {
+      const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' ') + 1);
+      message.channel.send(`Hiya ${noun}, I'm a Robit`);
+    }
   }
 
 })
