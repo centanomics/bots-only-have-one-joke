@@ -27,26 +27,12 @@ client.on('message', (message) => {
     return;
   }
   const lowMessage = message.content.toLowerCase();
-  // if (lowMessage.indexOf("i'm ") !== -1) {
-  //   const begin = lowMessage.indexOf("i'm ");
-  //   const jokeNoun = lowMessage.substr(begin).split(' ');
-  //   message.channel.send(`Hiya ${jokeNoun[1]}, I'm a Robit`);
-  // }
-  // if (lowMessage.indexOf("im ") !== -1) {
-  //   const begin = lowMessage.indexOf("im ");
-  //   const jokeNoun = lowMessage.substr(begin).split(' ');
-  //   message.channel.send(`Hiya ${jokeNoun[1]}, I'm a Robit`);
-  // }
-  // if (lowMessage.indexOf("i am ") !== -1) {
-  //   const begin = lowMessage.indexOf("i am ");
-  //   const jokeNoun = lowMessage.substr(begin).split(' ');
-  //   message.channel.send(`Hiya ${jokeNoun[2]}, I'm a Robit`);
-  // }
-  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)([a-z])+/g;
+  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)([a-z'-])+/g;
   const returnregex = lowMessage.match(regex);
   if (returnregex !== null) {
-    const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' '));
-    message.channel.send(`Hiya${noun}, I'm a Robit`);
+    const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' ') + 1);
+    console.log(noun);
+    message.channel.send(`Hiya ${noun}, I'm a Robit`);
   }
 
 })
