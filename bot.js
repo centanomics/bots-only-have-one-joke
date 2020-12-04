@@ -28,7 +28,7 @@ client.on('message', (message) => {
   }
   const messegeRegex = /([‘’])/g;
   let lowMessage = message.content.toLowerCase();
-  lowMessage = lowMessage.replaceAll(messegeRegex, '\'');
+  lowMessage = lowMessage.replace(messegeRegex, '\'');
   const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
   const returnregex = lowMessage.match(regex);
 
