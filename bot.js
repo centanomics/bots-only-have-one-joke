@@ -26,8 +26,10 @@ client.on('message', (message) => {
   if (message.author.bot) {
     return;
   }
-  const lowMessage = message.content.toLowerCase();
-  const regex = /(i‘m|i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
+  const messegeRegex = /([‘’])/g;
+  let lowMessage = message.content.toLowerCase();
+  lowMessage = lowMessage.replaceAll(messegeRegex, '\'');
+  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
   const returnregex = lowMessage.match(regex);
 
   const firstWord =
@@ -38,7 +40,7 @@ client.on('message', (message) => {
   const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex) - 1);
   console.log(returnregex, firstWord, charBefore)
   if (returnregex !== null) {
-    if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m' && firstWord !== 'i‘m') {
+    if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m') {
       return
     } else if (charBefore !== ' ' && charBefore !== '') {
       return
