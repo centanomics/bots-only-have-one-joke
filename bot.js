@@ -27,11 +27,20 @@ client.on('message', (message) => {
     return;
   }
   const lowMessage = message.content.toLowerCase();
-  const regex = /(i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
+  const regex = /(i‘m|i'm|im|i am)( ?n?o?t? ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
   const returnregex = lowMessage.match(regex);
-  const firstWord = returnregex !== null ?returnregex[0].split(' ')[0] : null;
+
+  const firstWord =
+  returnregex === null ? null :
+  returnregex[0].split(' ')[1] === 'am' ? 'i am' :
+  returnregex[0].split(' ')[0];
+
+  const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex) - 1);
+  console.log(returnregex, firstWord, charBefore)
   if (returnregex !== null) {
-    if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m') {
+    if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m' && firstWord !== 'i‘m') {
+      return
+    } else if (charBefore !== ' ' && charBefore !== '') {
       return
     } else {
       const noun = returnregex[0].substring(returnregex[0].lastIndexOf(' ') + 1);
