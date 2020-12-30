@@ -36,8 +36,8 @@ client.on('message', (message) => {
   returnregex === null ? null :
   returnregex[0].split(' ')[1] === 'am' ? 'i am' :
   returnregex[0].split(' ')[0];
-  const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex) - 1);
-  console.log(`regex: ${returnregex[0]}\nfirst word: ${firstWord}\nchar before: ${charBefore}`);
+  const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex[0]) - 1);
+  console.log(`\nregex: ${returnregex[0]}\nfirst word: ${firstWord}\nchar before: ${charBefore}`);
   if (returnregex !== null) {
     if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m') {
       return
