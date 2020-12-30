@@ -29,7 +29,7 @@ client.on('message', (message) => {
   const messegeRegex = /([‘’])/g;
   let lowMessage = message.content.toLowerCase();
   lowMessage = lowMessage.replace(messegeRegex, '\'');
-  const regex = /(i'm|im|i am)( ?a? ?)( ?n?o?t ?)( ?a? ?)( ?t?h?e? ?)([a-z'-])+/g;
+  const regex = /(i'm|im|i am)/g;
   const returnregex = lowMessage.match(regex);
 
   const firstWord =
@@ -37,7 +37,7 @@ client.on('message', (message) => {
   returnregex[0].split(' ')[1] === 'am' ? 'i am' :
   returnregex[0].split(' ')[0];
   const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex) - 1);
-  console.log(returnregex, ':', firstWord, ':', charBefore)
+  console.log(`regex: ${returnregex[0]}\nfirst word: ${firstWord}\nchar before: ${charBefore}`);
   if (returnregex !== null) {
     if (firstWord !== 'i am' && firstWord !== 'im' && firstWord !== 'i\'m') {
       return
