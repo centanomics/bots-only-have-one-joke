@@ -35,7 +35,7 @@ client.on('message', (message) => {
 
     const firstWord =
       returnregex === null ? [null] :
-        returnregex[0].split(' ')[1] === 'am' ? ['i am'] :
+        returnregex[0].split(' ')[1] === 'am' ? ['am'] :
           lowMessage.split(' ').filter(word => (word.indexOf(returnregex[0]) !== -1));
     // console.log(lowMessage.split(' ').filter((word) => word.indexOf(returnregex[0]) !== -1))
     const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex[0]) - 1);
@@ -44,27 +44,24 @@ client.on('message', (message) => {
     );
     if (returnregex !== null) {
     
-      if (firstWord[0] !== 'i am' && firstWord[0] !== 'im' && firstWord[0] !== 'i\'m') {
+      if (firstWord[0] !== 'am' && firstWord[0] !== 'im' && firstWord[0] !== 'i\'m') {
         return
       } else if (charBefore !== ' ' && charBefore !== '') {
         return
       } else {
         const ignoreArray = ['i\'m', 'im', 'i', 'am', 'a', 'not', 'the', 'an'];
         const sentenceArray = lowMessage.split(' ');
-        // const start = sentenceArray.indexOf(returnregex) !== -1 ? sentenceArray.indexOf(returnregex) : sentenceArray.indexOf('am')
+        const start = sentenceArray.indexOf(firstWord[0]);
         let noun = '';
-        console.log(sentenceArray.indexOf(returnregex))
-        for (let i = 0; i < sentenceArray.length; i++) {
-          // console.log(ignoreArray.indexOf(sentenceArray[i]) === -1)
+        for (let i = start; i < sentenceArray.length; i++) {
           if (ignoreArray.indexOf(sentenceArray[i]) === -1) {
             noun = sentenceArray[i];
-            // console.log(sentenceArray[i])
             break;
           }
-          // message.channel.send(ignoreArray.indexOf(sentenceArray[i]) === -1)
         }
-
-        message.channel.send(`Hiya ${noun}, I'm a Robit`);
+        if (noun !== '') {
+          message.channel.send(`Hiya ${noun}, I'm a Robit`);
+        }
       }
     }
   } catch (err) {
