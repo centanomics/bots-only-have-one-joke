@@ -39,9 +39,9 @@ client.on('message', (message) => {
           lowMessage.split(' ').filter(word => (word.indexOf(returnregex[0]) !== -1));
     // console.log(lowMessage.split(' ').filter((word) => word.indexOf(returnregex[0]) !== -1))
     const charBefore = lowMessage.charAt(lowMessage.indexOf(returnregex[0]) - 1);
-    // console.log(
-    //   `\nregex: ${returnregex[0]}\nfirst word: ${firstWord[0]}\nchar before: ${charBefore}`
-    // );
+    console.log(
+      `\nregex: ${returnregex[0]}\nfirst word: ${firstWord[0]}\nchar before: ${charBefore}`
+    );
     if (returnregex !== null) {
     
       if (firstWord[0] !== 'i am' && firstWord[0] !== 'im' && firstWord[0] !== 'i\'m') {
