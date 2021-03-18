@@ -42,6 +42,11 @@ client.on('message', (message) => {
     console.log(
       `\nregex: ${returnregex[0]}\nfirst word: ${firstWord[0]}\nchar before: ${charBefore}`
     );
+    const checkReg = /(i'm|im|i am)( a? ?(robit|birbit))/g;
+    if (lowMessage.match(checkReg) !== null) {
+      message.channel.send('No you\'re not.');
+      return;
+    }
     if (returnregex !== null) {
     
       if (firstWord[0] !== 'am' && firstWord[0] !== 'im' && firstWord[0] !== 'i\'m') {
