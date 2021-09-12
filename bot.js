@@ -66,18 +66,7 @@ client.on('message', (message) => {
       } else if (charBefore !== ' ' && charBefore !== '') {
         return;
       } else {
-        const ignoreArray = [
-          "i'm",
-          'im',
-          'i',
-          'am',
-          'a',
-          'not',
-          'the',
-          'an',
-          "i'm,",
-          'im,',
-        ];
+        const ignoreArray = ["i'm", 'im', 'i', 'am', 'a', 'not', 'the', 'an'];
         const sentenceArray = lowMessage.split(' ');
         const start = sentenceArray.indexOf(firstWord[0]);
         let noun = '';
